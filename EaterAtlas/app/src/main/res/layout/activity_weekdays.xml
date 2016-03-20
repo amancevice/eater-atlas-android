@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/sand"
+    tools:context=".eateratlas.activities.WeekdaysActivity">
+
+    <!-- Header -->
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:background="@color/orange"
+        android:id="@+id/weekday_header">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:src="@drawable/burger"
+            android:paddingStart="24sp"
+            android:paddingEnd="0sp"
+            android:contentDescription="@string/drawer_description" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="12sp"
+            android:text="@string/weekday_picker_header"
+            android:textColor="@color/sand"
+            android:textSize="26sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <!-- Picker list-->
+    <ListView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/weekday_list"
+        android:layout_below="@+id/weekday_header"
+        android:layout_alignParentStart="true"
+        android:divider="@null" />
+
+    <!-- Picker shade -->
+    <LinearLayout
+        android:id="@+id/weekday_shade"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/orange"
+        android:orientation="vertical" />
+</RelativeLayout>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="darkGreen">#FF403F33</color>
+    <color name="medGreen">#FF494F43</color>
+    <color name="green">#FF6E755F</color>
+    <color name="lightGreen">#FFAFC2AA</color>
+    <color name="sand">#FFFFDEA1</color>
+    <color name="orange">#FFE54C10</color>
+</resources>

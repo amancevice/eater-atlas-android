@@ -1,0 +1,33 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- SlidingUpPanel -->
+        <item name="android:windowActionBarOverlay">true</item>
+        <!-- Customize your theme here. -->
+        <item name="android:windowTranslucentStatus">@bool/translucentStatus</item>
+        <item name="android:windowTranslucentNavigation">@bool/translucentNavigation</item>
+
+        <!-- Main theme colors -->
+        <!--<item name="android:colorPrimary">@color/medGreen</item>
+        <item name="android:colorPrimaryDark">@color/darkGreen</item>
+        <item name="android:textColorPrimary">@color/green</item>-->
+        <item name="android:colorPrimary">@color/green</item>
+        <item name="android:windowBackground">@color/orange</item>
+        <item name="android:colorEdgeEffect">@color/orange</item>
+        <!--<item name="android:navigationBarColor">@color/medGreen</item>-->
+
+        <item name="android:windowContentOverlay">@null</item>
+
+        <!--   theme UI controls like checkboxes and text fields -->
+        <item name="android:colorAccent">@color/orange</item>
+    </style>
+
+    <style name="PanelTheme" parent="AppTheme">
+        <item name="android:colorEdgeEffect">@color/lightGreen</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+</resources>

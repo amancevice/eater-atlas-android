@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="panel_elevation">2dp</dimen>
+    <dimen name="panel_header_padding">4dp</dimen>
+    <dimen name="panel_header_height">68dp</dimen>
+    <dimen name="panel_header_text_title_padding">5dp</dimen>
+    <dimen name="panel_header_text_title_height">30dp</dimen>
+    <dimen name="panel_header_text_subtitle_height">20dp</dimen>
+    <dimen name="panel_header_title_text_size">20sp</dimen>
+    <dimen name="panel_header_subtitle_text_size">16sp</dimen>
+    <dimen name="picker_title_text_size">28sp</dimen>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+</resources>

@@ -51,35 +51,37 @@ public class WeekdaysActivity extends AppCompatActivity {
         ListView weekdayList = (ListView) findViewById(R.id.weekday_list);
         ArrayList<Weekday> weekdays = new ArrayList<>();
         Collections.addAll(weekdays, Weekday.values());
-        weekdayList.setAdapter(new WeekdayAdapter(this, weekdays));
-        weekdayList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                if (mShade != null) {
-                    FireData.setWeekday(Weekday.values()[position]);
-                    mShade.animate()
-                            .translationY(0)
-                            .setListener(new Animator.AnimatorListener() {
-                                @Override
-                                public void onAnimationStart(Animator animation) {
-                                }
+        if (weekdayList != null) {
+            weekdayList.setAdapter(new WeekdayAdapter(this, weekdays));
+            weekdayList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                    if (mShade != null) {
+                        FireData.setWeekday(Weekday.values()[position]);
+                        mShade.animate()
+                                .translationY(0)
+                                .setListener(new Animator.AnimatorListener() {
+                                    @Override
+                                    public void onAnimationStart(Animator animation) {
+                                    }
 
-                                @Override
-                                public void onAnimationEnd(Animator animation) {
-                                    finish();
-                                }
+                                    @Override
+                                    public void onAnimationEnd(Animator animation) {
+                                        finish();
+                                    }
 
-                                @Override
-                                public void onAnimationCancel(Animator animation) {
-                                }
+                                    @Override
+                                    public void onAnimationCancel(Animator animation) {
+                                    }
 
-                                @Override
-                                public void onAnimationRepeat(Animator animation) {
-                                }
-                            });
+                                    @Override
+                                    public void onAnimationRepeat(Animator animation) {
+                                    }
+                                });
+                    }
                 }
-            }
-        });
+            });
+        }
     }
 
     @Override

@@ -51,35 +51,37 @@ public class MealsActivity extends AppCompatActivity {
         ListView mealList = (ListView) findViewById(R.id.meal_list);
         ArrayList<Meal> meals = new ArrayList<>();
         Collections.addAll(meals, Meal.values());
-        mealList.setAdapter(new MealAdapter(this, meals));
-        mealList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                if (mShade != null) {
-                    FireData.setMeal(Meal.values()[position]);
-                    mShade.animate()
-                            .translationY(0)
-                            .setListener(new Animator.AnimatorListener() {
-                                @Override
-                                public void onAnimationStart(Animator animation) {
-                                }
+        if (mealList != null) {
+            mealList.setAdapter(new MealAdapter(this, meals));
+            mealList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                    if (mShade != null) {
+                        FireData.setMeal(Meal.values()[position]);
+                        mShade.animate()
+                                .translationY(0)
+                                .setListener(new Animator.AnimatorListener() {
+                                    @Override
+                                    public void onAnimationStart(Animator animation) {
+                                    }
 
-                                @Override
-                                public void onAnimationEnd(Animator animation) {
-                                    finish();
-                                }
+                                    @Override
+                                    public void onAnimationEnd(Animator animation) {
+                                        finish();
+                                    }
 
-                                @Override
-                                public void onAnimationCancel(Animator animation) {
-                                }
+                                    @Override
+                                    public void onAnimationCancel(Animator animation) {
+                                    }
 
-                                @Override
-                                public void onAnimationRepeat(Animator animation) {
-                                }
-                            });
+                                    @Override
+                                    public void onAnimationRepeat(Animator animation) {
+                                    }
+                                });
+                    }
                 }
-            }
-        });
+            });
+        }
     }
 
     @Override

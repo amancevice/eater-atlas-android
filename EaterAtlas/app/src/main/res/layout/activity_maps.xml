@@ -276,15 +276,6 @@
 
     <!-- Picker shade -->
     <LinearLayout
-        android:id="@+id/panel_shade"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@color/lightGreen"
-        android:orientation="vertical"
-        android:visibility="gone" />
-
-    <!-- Picker shade -->
-    <LinearLayout
         android:id="@+id/picker_shade"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

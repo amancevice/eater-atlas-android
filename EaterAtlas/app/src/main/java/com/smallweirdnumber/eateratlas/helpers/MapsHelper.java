@@ -35,8 +35,6 @@ public class MapsHelper {
     public static void bind(Context context) {
         mMapsActivity = (MapsActivity) context;
         mSplash = findViewById(R.id.splash);
-        mMarkerIcon = BitmapDescriptorFactory.fromResource(R.mipmap.map_marker);
-        mMarkerIconSelected = BitmapDescriptorFactory.fromResource(R.mipmap.map_marker_orange);
         SupportMapFragment mapFragment = getMapFragment(R.id.map);
         if (mapFragment != null) {
             mapFragment.getMapAsync(new MapReadyCallback());
@@ -152,6 +150,9 @@ public class MapsHelper {
             mMap.setOnMarkerClickListener(new MarkerClick());
             mMap.setOnMapClickListener(new MapClick());
             mMap.setOnMapLoadedCallback(new MapLoadedCallback());
+
+            mMarkerIcon = BitmapDescriptorFactory.fromResource(R.mipmap.map_marker);
+            mMarkerIconSelected = BitmapDescriptorFactory.fromResource(R.mipmap.map_marker_orange);
 
             // Slide out splash screen
             if (mSplash != null) {

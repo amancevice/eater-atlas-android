@@ -35,10 +35,13 @@ public class PermissionHelper {
      */
     public static Location getLastLocation(GoogleApiClient client) {
         if (client != null && hasPermission()) {
-            return LocationServices.FusedLocationApi.getLastLocation(client);
-        } else {
-            return null;
+            try {
+                return LocationServices.FusedLocationApi.getLastLocation(client);
+            } catch (SecurityException e) {
+                requestPermissionAsync();
+            }
         }
+        return null;
     }
 
     /**
@@ -47,7 +50,11 @@ public class PermissionHelper {
     public static void setMyLocationEnabled() {
         GoogleMap map = MapsHelper.getMap();
         if (mMapsActivity != null && map != null && hasPermission()) {
-            map.setMyLocationEnabled(true);
+            try {
+                map.setMyLocationEnabled(true);
+            } catch (SecurityException e) {
+                requestPermissionAsync();
+            }
         }
     }
 
@@ -77,7 +84,7 @@ public class PermissionHelper {
             if (ActivityCompat.checkSelfPermission(mMapsActivity,
                     Manifest.permission.ACCESS_FINE_LOCATION)
                     == PackageManager.PERMISSION_GRANTED
-                    && ActivityCompat.checkSelfPermission(mMapsActivity,
+                    || ActivityCompat.checkSelfPermission(mMapsActivity,
                     Manifest.permission.ACCESS_COARSE_LOCATION)
                     == PackageManager.PERMISSION_GRANTED) {
                 return true;

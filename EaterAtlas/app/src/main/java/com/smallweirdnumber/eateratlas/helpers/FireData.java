@@ -15,6 +15,8 @@ import com.smallweirdnumber.eateratlas.models.Gig;
 
 import java.text.ParseException;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -132,6 +134,15 @@ public class FireData {
                 }
             }
         }
+
+        // Sort gigs by source
+        Collections.sort(gigs, new Comparator<Gig>() {
+            @Override
+            public int compare(Gig gig1, Gig gig2) {
+                return gig1.getSource().compareTo(gig2.getSource());
+            }
+        });
+
         return gigs;
     }
 

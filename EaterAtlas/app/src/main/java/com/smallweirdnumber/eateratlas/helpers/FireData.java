@@ -68,20 +68,24 @@ public class FireData {
     public static void setSnapshot(DataSnapshot dataSnapshot){
         mData = new HashMap<>();
         for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-            Gig gig = snapshot.getValue(Gig.class);
-            Weekday weekday = gig.getWeekdayEnum();
-            Meal meal = gig.getMealEnum();
-            LatLng latLng = gig.getLatLng();
-            if (!mData.containsKey(weekday)) {
-                mData.put(weekday, new HashMap<Meal, Map<LatLng, List<Gig>>>());
+            for (DataSnapshot weekdaySnapshot : snapshot.getChildren()) {
+                for (DataSnapshot mealSnapshot : weekdaySnapshot.getChildren()) {
+                    Gig gig = mealSnapshot.getValue(Gig.class);
+                    Weekday weekday = gig.getWeekdayEnum();
+                    Meal meal = gig.getMealEnum();
+                    LatLng latLng = gig.getLatLng();
+                    if (!mData.containsKey(weekday)) {
+                        mData.put(weekday, new HashMap<Meal, Map<LatLng, List<Gig>>>());
+                    }
+                    if (!mData.get(weekday).containsKey(meal)) {
+                        mData.get(weekday).put(meal, new HashMap<LatLng,List<Gig>>());
+                    }
+                    if (!mData.get(weekday).get(meal).containsKey(latLng)) {
+                        mData.get(weekday).get(meal).put(latLng, new ArrayList<Gig>());
+                    }
+                    mData.get(weekday).get(meal).get(latLng).add(gig);
+                }
             }
-            if (!mData.get(weekday).containsKey(meal)) {
-                mData.get(weekday).put(meal, new HashMap<LatLng,List<Gig>>());
-            }
-            if (!mData.get(weekday).get(meal).containsKey(latLng)) {
-                mData.get(weekday).get(meal).put(latLng, new ArrayList<Gig>());
-            }
-            mData.get(weekday).get(meal).get(latLng).add(gig);
         }
     }
 

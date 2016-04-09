@@ -9,10 +9,9 @@
         <item name="android:windowTranslucentNavigation">@bool/translucentNavigation</item>
 
         <!-- Main theme colors -->
-        <!--<item name="android:colorPrimary">@color/medGreen</item>
         <item name="android:colorPrimaryDark">@color/darkGreen</item>
-        <item name="android:textColorPrimary">@color/green</item>-->
-        <item name="android:colorPrimary">@color/green</item>
+        <item name="android:textColorPrimary">@color/green</item>
+        <item name="android:colorPrimary">@color/orange</item>
         <item name="android:windowBackground">@color/orange</item>
         <item name="android:colorEdgeEffect">@color/orange</item>
         <!--<item name="android:navigationBarColor">@color/medGreen</item>-->

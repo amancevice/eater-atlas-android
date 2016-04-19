@@ -129,8 +129,7 @@ public class BottomPanel {
         if (mMapsActivity != null && mTruckList != null && marker != null) {
 
             // Show trucks in panel
-            List<String> trucks = new ArrayList<>();
-            trucks.addAll(FireData.getTrucks(marker.getPosition()));
+            List<String> trucks = FireData.getTrucks(marker.getPosition());
             mTruckList.setAdapter(new TruckAdapter(mMapsActivity, trucks));
 
             // Set item click listener

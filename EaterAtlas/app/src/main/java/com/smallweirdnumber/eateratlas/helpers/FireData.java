@@ -107,12 +107,23 @@ public class FireData {
         return getGigs(latLng).iterator().next().getPlace();
     }
 
-    public static Set<String> getTrucks(LatLng latLng) {
+    public static List<String> getTrucks(LatLng latLng) {
         Set<String> trucks = new HashSet<>();
         for (Gig gig : getGigs(latLng)) {
             trucks.add(gig.getTruck());
         }
-        return trucks;
+
+        List<String> truckList = new ArrayList<>();
+        truckList.addAll(trucks);
+
+        // Sort trucks by name
+        Collections.sort(truckList, new Comparator<String>() {
+            @Override
+            public int compare(String truck1, String truck2) {
+                return truck1.compareTo(truck2);
+            }
+        });
+        return truckList;
     }
 
     public static int getTruckCount(LatLng latLng) {
